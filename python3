@@ -8,11 +8,20 @@ d = (b ** 4) - (4*a*c)
 print('D=B^2-4ac')
 print('Дискриминант равен=', d)
 if d == 0:
-    x0=-b/(a*c)
+    try:
+        x0=-b/(a*c)
+    except ZeroDivisionError:
+        print('Аргумент a или c не может быть нулём')
+        x0=0
     print('Квадратное уравнение имеет только один корень=', x0)
 if d < 0:
     print('Дискриминант равен нулю. Уравнение не имеет корней')
 if d > 0:
-    x1=(-b-math.sqrt(d))/(2*a)
-    x2=(-b+math.sqrt(d))/(2*a)
+    try:
+        x1=(-b-math.sqrt(d))/(2*a)
+        x2=(-b+math.sqrt(d))/(2*a)
+    except ZeroDivisionError:
+        print('Аргумент a не может быть нулем')
+        x1=0
+        x2=0
     print('Квадратное уравнение имеет два корня:', x1, x2)
