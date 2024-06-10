@@ -1,30 +1,25 @@
-def min_or_max(price1, price2):
-    return (price1, price2)
 #price1
 p1 = [100, 300, 800, 500, 1200, 453, 834, 912, 50]
+print('price1', p1)
 #price2
 p2 = [120, 400, 100, 1300, 342, 300, 90, 500, 87]
-#мин., макс. элемент price1
-min = p1[0]
-max = p1[0]
+print('price2', p2)
+#мин., макс. элемент массивов
+min_price1 = p1[0]
+max_price1 = p1[0]
+min_price2 = p2[0]
+max_price2 = p2[0]
 for i in p1:
-    if min > i:
-        min = i
-for i in p1:
-    if i > max:
-        max = i
-print('price1', p1)
-print('минимальный элемент в списке price1', min)
-print('максимальный элемент в списке price1', max)
-#мин., макс. элемент price2
-min1 = p2[0]
-max1 = p2[0]
+if min_price1 > i:
+min_price1 = i
+if i > max_price1:
+max_price1 = i
 for i in p2:
-    if min1 > i:
-        min1 = i
-for i in p2:
-    if max1 < i:
-        max1 = i
-print('price', p2)
-print('минимальный элемент в списке price2', min1)
-print('максимальный элемент в списке price2',  max1)
+if min_price2 > i:
+min_price2 = i
+if max_price2 < i:
+max_price2 = i
+print('минимальный элемент в списке price1', min_price1)
+print('максимальный элемент в списке price1', max_price1)
+print('минимальный элемент в списке price2', min_price2)
+print('максимальный элемент в списке price2', max_price2)
