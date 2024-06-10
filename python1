@@ -9,16 +9,16 @@ min_price1 = p1[0]
 max_price1 = p1[0]
 min_price2 = p2[0]
 max_price2 = p2[0]
-for i in p1:
-if min_price1 > i:
-min_price1 = i
-if i > max_price1:
-max_price1 = i
-for i in p2:
-if min_price2 > i:
-min_price2 = i
-if max_price2 < i:
-max_price2 = i
+  for i in p1:
+    if min_price1 > i:
+      min_price1 = i
+    if i > max_price1:
+      max_price1 = i
+  for i in p2:
+    if min_price2 > i:
+      min_price2 = i
+    if max_price2 < i:
+      max_price2 = i
 print('минимальный элемент в списке price1', min_price1)
 print('максимальный элемент в списке price1', max_price1)
 print('минимальный элемент в списке price2', min_price2)
