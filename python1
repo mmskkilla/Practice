@@ -1,0 +1,30 @@
+def min_or_max(price1, price2):
+    return (price1, price2)
+#price1
+p1 = [100, 300, 800, 500, 1200, 453, 834, 912, 50]
+#price2
+p2 = [120, 400, 100, 1300, 342, 300, 90, 500, 87]
+#мин., макс. элемент price1
+min = p1[0]
+max = p1[0]
+for i in p1:
+    if min > i:
+        min = i
+for i in p1:
+    if i > max:
+        max = i
+print('price1', p1)
+print('минимальный элемент в списке price1', min)
+print('максимальный элемент в списке price1', max)
+#мин., макс. элемент price2
+min1 = p2[0]
+max1 = p2[0]
+for i in p2:
+    if min1 > i:
+        min1 = i
+for i in p2:
+    if max1 < i:
+        max1 = i
+print('price', p2)
+print('минимальный элемент в списке price2', min1)
+print('максимальный элемент в списке price2',  max1)
