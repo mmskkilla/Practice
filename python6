@@ -15,8 +15,10 @@ try:
         v=a**b
     elif c == 'log':
         v=math.log(b,a)
-    print('Результат=', v)
+    print('Результат = ', v)
 except ValueError:
     print('Ошибка: введено нечисловое значение.')
 except ZeroDivisionError:
     print('Ошибка: деление на ноль.')
+except NameError:
+    print('Операция не поддерживается.')
