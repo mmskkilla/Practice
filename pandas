@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+df = pd.read_csv('Sales_Data.csv')
+df = df.rename(columns = {'Дата': 'date', 'Товар': 'goods', 'Цена': 'price', 'Количество': 'stock'}) #устранение некорректных названий столбцов для дальнейшей работы
+df.isna().sum()
+print('Статистика пропусков в строках:\n',df.isna().sum()) #пропусков нет
+df['date'] = pd.to_datetime(df['date']) #преобразование столбца date в формат datetime
+df['price'] = pd.to_numeric(df['price']) #преобразование столбца price в числовой формат
+df['stock'] = pd.to_numeric(df['stock']) #преобразование столбца stock в числовой формат
+df = df.assign(sales_sum = df['price'] * df['stock']) #создание столбца sales_sum
+sum_all_sales = df['sales_sum'].sum()
+print('Сумма всех продаж:', sum_all_sales)
+max_sales_sum = df.groupby('goods').max()[['sales_sum']]  #группировка по товарам
+max_good = df['goods'].max() #товар с максимальной прибылью
+max_sale = df['sales_sum'].max() #максимальная прибыль от n-го товара
+print(max_sales_sum) #группировка по товарам
+print('Максимальное значение =', max_good, max_sale)
+mean_price = df['price'].mean()
+print('Средняя цена продажи:', mean_price) #средняя цена продажи
+df['month'] = df['date'].dt.month # создание столбца месяц
+print(df)
+max_sales_by_month = df.groupby('month').max()[['sales_sum']] 
+print('Группировка по месяцу:\n',max_sales_by_month)
+df.set_index('month', inplace= True )
+df.groupby('month').max()[['sales_sum']].plot(color = 'green', marker = 'o', markersize=5, legend= True)
+plt.xlabel('Месяц')
+plt.ylabel('Прибыль')
+plt.title('Суммарная прибыль по месяцам')
