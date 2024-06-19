@@ -6,13 +6,12 @@
         #return "Cannot divide by zero"
     #return result
 #обновленный код
-try:
-    a = int(input('Введите делимое'))
-    b = int(input('Введите делитель'))
-    result = a/b
-    print('Частное =', result)
-except ZeroDivisionError:
-    print('Ошибка. Деление на ноль')
-except ValueError:
-    print('Ошибка. Вы ввели нечисловое значение')
-#Теперь пользователь не может вводить нечисловые значения. Как мне кажется, здесь присваивать действию функцию не нужно.
+def divide(x, y):
+    try:
+        result = x/y
+    except ZeroDivisionError:
+        return "Error. Cannot divide by zero"
+    except ValueError:
+        return "Error. Non-numeric value"
+    return result
+#Теперь пользователь не может вводить нечисловые значения.
